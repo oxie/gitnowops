@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-900 text-white antialiased;
+  }
+
+  /* Ensure form elements are always interactive */
+  input, textarea, button, select {
+    @apply relative z-[1];
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply relative bg-slate-800/50 backdrop-blur-sm border border-slate-700 
+           hover:border-gold-500/50 transition-all duration-300
+           hover:shadow-[0_0_20px_rgba(250,189,0,0.15)];
+  }
+
+  .hover-lift {
+    @apply relative transform transition-all duration-300 
+           hover:-translate-y-1 hover:shadow-lg hover:shadow-gold-500/20;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Form Elements */
+.form-input {
+  @apply relative w-full px-4 py-3 bg-slate-900/50 rounded-lg 
+         border border-slate-700 text-white
+         focus:ring-2 focus:ring-gold-400 focus:border-transparent 
+         outline-none transition-all duration-300;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent;
+}
+
+/* Hover Effects */
+.hover-glow {
+  @apply relative transition-all duration-300;
+}
+
+.hover-glow:hover {
+  @apply shadow-[0_0_20px_rgba(250,189,0,0.2)];
+}
+
+/* Animation Utilities */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
